@@ -1,0 +1,13 @@
+tap "homebrew/cask-fonts"
+
+# Binaries
+brew "git"
+brew "go"
+brew "python"
+brew "docker"
+
+# GUI Apps
+cask "google-chrome"
+
+# Fonts
+cask "font-fira-code"
