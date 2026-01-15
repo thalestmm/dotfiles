@@ -47,6 +47,19 @@ fi
 echo "Symlinking configurations..."
 # Backup existing files is recommended here in a real scenario
 ln -sf "$PWD/configs/zsh/.zshrc" "$HOME/.zshrc"
+ln -sf "$PWD/configs/zsh/.bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/configs/git/.gitconfig" "$HOME/.gitconfig"
+
+# Directories
+CONFIGS="$PWD/configs"
+
+link_dir "$CONFIGS/nvim" "$HOME/.config/nvim"
+link_dir "$CONFIGS/ghostty" "$HOME/.config/ghostty"
+link_dir "$CONFIGS/kitty" "$HOME/.config/kitty"
+
+# 5. Go tooling
+go install github.com/pressly/goose/v3/cmd/goose@latest
+go install github.com/air-verse/air@latest
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
 echo "Setup complete! Please restart your shell."
