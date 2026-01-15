@@ -7,6 +7,17 @@ set -u # Treat unset variables as error
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_DIR="$HOME/dotfiles_backups/$(date +%Y%m%d_%H%M%S)"
 
+# --- 0.5 Sudo Keep-Alive ---
+echo "🔑 Requesting sudo access upfront..."
+sudo -v
+
+# Keep sudo alive in the background
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
+
 # --- 1. Helper Functions ---
 
 # Function to handle backups
