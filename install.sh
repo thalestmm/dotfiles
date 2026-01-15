@@ -37,6 +37,10 @@ elif [ "$machine" == "linux" ]; then
     sudo dnf update -y
     # Install packages from list, ignoring comments
     grep -vE '^#' "$PWD/linux/packages.txt" | xargs sudo dnf install -y
+
+    sudo dnf copr enable scottames/ghostty
+    sudo dnf install ghostty
+
   else
     echo "Unsupported Linux distribution."
     exit 1
@@ -58,8 +62,11 @@ link_dir "$CONFIGS/ghostty" "$HOME/.config/ghostty"
 link_dir "$CONFIGS/kitty" "$HOME/.config/kitty"
 
 # 5. Go tooling
-go install github.com/pressly/goose/v3/cmd/goose@latest
-go install github.com/air-verse/air@latest
-go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+go install github.com/pressly/goose/v3/cmd/goose@latest # Goose
+go install github.com/air-verse/air@latest              # Air hot reload
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest     # SQLc
+
+# 6. Python tooling
+curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 
 echo "Setup complete! Please restart your shell."

@@ -5,6 +5,8 @@ brew "git"
 brew "go"
 brew "python"
 brew "docker"
+brew "ghostty"
+brew "neovim"
 
 # GUI Apps
 cask "google-chrome"
