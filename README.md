@@ -15,6 +15,7 @@ chmod +x install.sh && ./install.sh
 #### GitHub CLI
 
 ```bash
+gh auth setup-git
 gh auth login
 ```
 
