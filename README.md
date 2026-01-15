@@ -6,7 +6,8 @@ Base system configuration for [@thalestmm](https://github.com/thalestmm).
 
 ```bash
 git clone github.com/thalestmm/dotfiles ~/dotfiles
-cd dotfiles && ./install.sh
+cd dotfiles
+chmod +x install.sh && ./install.sh
 ```
 
 ## Contents
