@@ -136,6 +136,11 @@ elif [ "$machine" == "linux" ]; then
     echo "Installing Ghostty..."
     sudo dnf copr enable -y scottames/ghostty
     sudo dnf install -y ghostty
+
+    echo "Installing GitHub CLI..."
+    sudo dnf install dnf5-plugins
+    sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+    sudo dnf install gh --repo gh-cli
   else
     echo "❌ Unsupported Linux distribution."
     exit 1
