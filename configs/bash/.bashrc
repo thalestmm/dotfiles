@@ -29,3 +29,5 @@ export PATH=$PATH:~/go/bin
 
 # Set env variables
 source ~/.env.local
+
+eval "$(starship init bash)"
