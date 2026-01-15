@@ -10,4 +10,12 @@ cd dotfiles
 chmod +x install.sh && ./install.sh
 ```
 
+### Next Steps
+
+#### GitHub CLI
+
+```bash
+gh auth login
+```
+
 ## Contents
