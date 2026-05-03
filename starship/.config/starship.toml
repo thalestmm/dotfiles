@@ -1,0 +1,73 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+command_timeout = 1000
+
+# Simple, clean prompt: directory | git | languages | time | prompt
+format = """
+$directory\
+$git_branch\
+$git_status\
+$golang\
+$nodejs\
+$python\
+$docker_context\
+$time\
+$character\
+"""
+
+# Directory - just the path
+[directory]
+style = "bold blue"
+format = "[$path]($style) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Git branch
+[git_branch]
+symbol = "● "
+style = "bold magenta"
+format = "[$symbol$branch]($style) "
+
+# Git status
+[git_status]
+style = "bold magenta"
+format = "([$all_status$ahead_behind]($style) )"
+disabled = false
+
+# Languages - only show when files are present
+[golang]
+symbol = "go "
+style = "bold cyan"
+format = "[$symbol($version)]($style) "
+detect_extensions = ["go"]
+
+[nodejs]
+symbol = "node "
+style = "bold green"
+format = "[$symbol($version)]($style) "
+detect_extensions = ["js", "jsx", "ts", "tsx"]
+
+[python]
+symbol = "py "
+style = "bold yellow"
+format = "[$symbol($version)]($style) "
+detect_extensions = ["py"]
+
+[docker_context]
+symbol = "docker "
+style = "bold cyan"
+format = "[$symbol$context]($style) "
+
+# Time
+[time]
+disabled = false
+time_format = "%R"
+style = "bold white"
+format = "[$time]($style) "
+
+# Prompt character
+[character]
+success_symbol = "[→](bold green)"
+error_symbol = "[→](bold red)"
+format = "$symbol "
