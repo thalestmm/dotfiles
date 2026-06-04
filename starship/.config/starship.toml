@@ -7,6 +7,7 @@ command_timeout = 1000
 format = """
 $directory\
 $git_branch\
+${custom.github_pr}\
 $git_status\
 $golang\
 $nodejs\
@@ -28,6 +29,13 @@ truncation_symbol = "…/"
 symbol = "● "
 style = "bold magenta"
 format = "[$symbol$branch]($style) "
+
+# GitHub PR number for current branch (requires gh CLI; cached 10m per repo/branch)
+[custom.github_pr]
+command = "bash \"$HOME/.config/starship/github-pr.sh\""
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+format = "([\\[#$output\\]](bold 208) )"
+ignore_timeout = false
 
 # Git status
 [git_status]
